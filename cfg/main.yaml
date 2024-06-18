@@ -1,0 +1,50 @@
+# camera param
+cam:
+  # img_topic: /front_rgb_cam/image_raw
+  calib: # pinhole camera calibration params
+    # camera intrinsic matrix [fx, 0, cx, 0, fy, cy, 0, 0, 1]
+    K: [160.0, 0.0, 160.0, 0.0, 160.0, 120.0, 0.0, 0.0, 1.0]
+    # distortion coefficients [k1, k2, k3, c1, c2]
+    D: [0.0, 0.0, 0.0, 0.0, 0.0]
+
+# params of plant segmentation
+seg:
+  algo: exg # Det: yolo5, Seg: exg, deeplabv3
+  exg:
+    thr_algo: otsu # otsu, fixed
+    thr: 0 # fixed threshold value
+  yolo5:
+    dummy: 0
+  deeplabv3:
+    dummy: 0
+
+# params of line detection algorithms
+line_det:
+  theta_reso: 1 # resolution of theta in degree
+  r_reso: 0.01 # resolution of r in meter
+  track:
+    enable: 0
+    theta_range: 10.0 # in degree, change of theta angle w.r.t. previous theta in the previous image
+
+# robot params
+robot:
+  tf:
+    cam_in_ground: [1.06, 0.00, 1.2, -1.57079633, 0.0, -2.35619518] # [x, y, z, yaw, pitch, roll]
+
+# ROS related params
+ros:
+  cam:
+    img_topic: /front_rgb_cam/image_raw
+  frame:
+    cam_frame: front_rgb_cam
+    ground_frame: base_link
+
+# video file
+video:
+  dummy: 0
+
+# images
+image:
+  dummy: 0
+
+
